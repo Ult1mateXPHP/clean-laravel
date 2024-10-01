@@ -50,5 +50,8 @@ RUN composer global require "laravel/installer"
 
 RUN cp .env.example .env
 
+RUN sudo chmod -R 777 ./storage
+RUN sudo chmod -R 777 ./bootstrap/cache/
+
 EXPOSE 9000
 WORKDIR /var/www
