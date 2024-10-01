@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  nginx:
+    container_name: clean-laravel_nginx
+    image: nginx:stable-alpine3.20-perl
+    volumes:
+    - ./nginx/:/etc/nginx/conf.d/
+    - ./:/var/www/
+    ports:
+    - "80:80"
+    depends_on:
+    - php
+
+  php:
+    build: ./php
+    container_name: clean-laravel_php
+    # environment:
+    volumes:
+      - ./:/var/www/
+    ports:
+      - "9000:9000"
+
+  postgres:
+    container_name: clean-laravel_postgres
+    image: postgres:16.1-alpine
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - "54324:5432"
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: laravel
+
+volumes:
+    postgres:
