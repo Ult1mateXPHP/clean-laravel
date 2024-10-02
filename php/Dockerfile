@@ -48,10 +48,5 @@ ENV PATH $PATH:/composer/vendor/bin
 RUN composer config --global process-timeout 3600
 RUN composer global require "laravel/installer"
 
-RUN cp .env.example .env
-
-RUN sudo chmod -R 777 ./storage
-RUN sudo chmod -R 777 ./bootstrap/cache/
-
 EXPOSE 9000
 WORKDIR /var/www

@@ -8,5 +8,8 @@
 <h3>Установка</h3>
 <code>git clone https://github.com/Ult1mateXPHP/clean-laravel</code><br>
 <code>docker compose up -d</code><br>
+<code>cp .env.example .env</code><br>
+<code>sudo chmod -R 777 ./storage</code><br>
+<code>sudo chmod -R 777 ./bootstrap/cache/</code><br>
 <code>php artisan config:clear</code><br>
 <code>php artisan key:generate</code>
